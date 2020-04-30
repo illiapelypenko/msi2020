@@ -11,6 +11,7 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	font-weight: 500;
 
 	.favourite-btn__icon-group {
 		width: 28px;
@@ -53,7 +54,6 @@
 	}
 
 	.favourite-btn__text {
-		font-weight: 500;
 		font-size: 20px;
 		line-height: 28px;
 		color: #ababab;

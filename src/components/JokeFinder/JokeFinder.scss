@@ -2,30 +2,31 @@
 	margin-top: 78px;
 
 	h1 {
-		font-weight: bold;
 		font-size: 32px;
 		line-height: 44px;
+		font-weight: 600;
 	}
 
 	h2 {
-		font-weight: 500;
 		font-size: 24px;
 		line-height: 44px;
+		font-weight: 500;
 	}
 
 	.jokeFinder__form {
-		margin-top: 43px;
+		margin-top: 33px;
 		display: flex;
 		flex-direction: column;
 
 		* {
-			transition: border 0.7s, background 0.7s;
+			transition: border 0.5s, background 0.5s, color 0.5s;
 		}
 
 		&-group {
 			margin-top: 10px;
 			cursor: pointer;
 			display: flex;
+			align-items: center;
 
 			&:hover {
 				.jokeFinder__custom-btn > div {
@@ -85,7 +86,7 @@
 		width: 152px;
 		height: 42px;
 		color: #fff;
-		font-weight: bold;
+		font-weight: 500;
 		font-size: 16px;
 		line-height: 22px;
 		margin-top: 20px;

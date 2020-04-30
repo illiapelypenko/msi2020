@@ -1,5 +1,8 @@
 .jokeFinder__categories {
 	display: flex;
+	flex-wrap: wrap;
+	margin: 10px 0px;
+	font-weight: 500;
 
 	.jokeFinder__category {
 		height: 28px;
@@ -8,12 +11,13 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 6px 12px;
+		margin: 10px 10px 0px 0px;
 
 		&--checked {
 			background: #f8f8f8;
 
 			span {
-				font-weight: 500;
 				font-size: 12px;
 				line-height: 16px;
 				letter-spacing: 2px;
@@ -31,7 +35,6 @@
 	}
 
 	span {
-		font-weight: 500;
 		font-size: 12px;
 		line-height: 16px;
 		letter-spacing: 2px;
