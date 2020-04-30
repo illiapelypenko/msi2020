@@ -4,7 +4,7 @@ import FormGroup from './FormGroup';
 import Categories from './Categories';
 import './JokeFinder.scss';
 
-const JokeFinder = ({ categories }) => {
+const JokeFinder = ({ categories, setJokes }) => {
 	const [value, setValue] = useState('random');
 	const [category, setCategory] = useState('animal');
 	const [searchedText, setSearchedText] = useState('');
@@ -24,20 +24,24 @@ const JokeFinder = ({ categories }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		let api = 'https://api.chucknorris.io/jokes/';
+		let res;
 		switch (value) {
 			case 'random':
 				api += 'random';
+				res = await axios.get(api);
+				setJokes([res.data]);
 				break;
 			case 'fromCategories':
 				api += `random?category=${category}`;
+				res = await axios.get(api);
+				setJokes([res.data]);
 				break;
 			case 'search':
 				api += `search?query=${searchedText}`;
+				res = await axios.get(api);
+				setJokes(res.data.result);
 				break;
 		}
-		const res = await axios.get(api);
-		const data = res.data;
-		console.log(data);
 	};
 
 	return (
