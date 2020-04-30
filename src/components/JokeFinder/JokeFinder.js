@@ -28,6 +28,10 @@ const JokeFinder = ({ categories }) => {
 		setValue(e.target.value);
 	};
 
+	const handleSearchChange = (e) => {
+		setSearchText(e.target.value);
+	};
+
 	const handleSubmit = () => {};
 
 	return (
@@ -59,6 +63,15 @@ const JokeFinder = ({ categories }) => {
 					text={'Search'}
 					onChange={handleChange}
 				/>
+				{value === 'search' ? (
+					<input
+						className='jokeFinder__search'
+						type='text'
+						placeholder='Free text search...'
+						value={searchText}
+						onChange={handleSearchChange}
+					/>
+				) : null}
 				<input
 					className='jokeFinder__submit-btn'
 					type='submit'
