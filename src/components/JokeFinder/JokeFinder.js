@@ -1,27 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import FormGroup from './FormGroup';
 import Categories from './Categories';
 import './JokeFinder.scss';
 
 const JokeFinder = ({ categories }) => {
 	const [value, setValue] = useState('random');
-	const [selectedCategories, setSelectedCategories] = useState({});
-	const [searchText, setSearchText] = useState('');
+	const [category, setCategory] = useState('animal');
+	const [searchedText, setSearchedText] = useState('');
 
-	useEffect(() => {
-		const newSelectedCategories = {};
-		categories.map((category) => {
-			newSelectedCategories[category] = false;
-		});
-		setSelectedCategories(newSelectedCategories);
-	}, [categories]);
-
-	const handleCategoriesChange = (e) => {
-		const newSelectedCategories = { ...selectedCategories };
-		newSelectedCategories[e.target.value] = !newSelectedCategories[
-			e.target.value
-		];
-		setSelectedCategories(newSelectedCategories);
+	const handleCategoryChange = (e) => {
+		setCategory(e.target.value);
 	};
 
 	const handleChange = (e) => {
@@ -29,10 +18,27 @@ const JokeFinder = ({ categories }) => {
 	};
 
 	const handleSearchChange = (e) => {
-		setSearchText(e.target.value);
+		setSearchedText(e.target.value);
 	};
 
-	const handleSubmit = () => {};
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		let api = 'https://api.chucknorris.io/jokes/';
+		switch (value) {
+			case 'random':
+				api += 'random';
+				break;
+			case 'fromCategories':
+				api += `random?category=${category}`;
+				break;
+			case 'search':
+				api += `search?query=${searchedText}`;
+				break;
+		}
+		const res = await axios.get(api);
+		const data = res.data;
+		console.log(data);
+	};
 
 	return (
 		<main className='jokeFinder'>
@@ -53,8 +59,9 @@ const JokeFinder = ({ categories }) => {
 				/>
 				{value === 'fromCategories' ? (
 					<Categories
-						selectedCategories={selectedCategories}
-						onCategoriesChange={handleCategoriesChange}
+						categories={categories}
+						onCategoryChange={handleCategoryChange}
+						selectedCategory={category}
 					/>
 				) : null}
 				<FormGroup
@@ -65,10 +72,11 @@ const JokeFinder = ({ categories }) => {
 				/>
 				{value === 'search' ? (
 					<input
+						autoFocus
 						className='jokeFinder__search'
 						type='text'
 						placeholder='Free text search...'
-						value={searchText}
+						value={searchedText}
 						onChange={handleSearchChange}
 					/>
 				) : null}

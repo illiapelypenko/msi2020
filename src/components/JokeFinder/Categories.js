@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './Categories.scss';
 
-const Categories = ({ onCategoriesChange, selectedCategories }) => {
+const Categories = ({ onCategoryChange, categories, selectedCategory }) => {
 	return (
-		<form className='jokeFinder__categories'>
-			{Object.keys(selectedCategories).map((category, index) => (
+		<section className='jokeFinder__categories'>
+			{categories.map((category, index) => (
 				<label
 					className={`jokeFinder__category ${
-						selectedCategories[category] === true
-							? 'jokeFinder__category--checked'
-							: ''
+						category === selectedCategory ? 'jokeFinder__category--checked' : ''
 					}`}
 					key={index}>
 					<input
-						type='checkbox'
-						onChange={onCategoriesChange}
-						checked={selectedCategories[category] === true}
+						type='radio'
+						onChange={onCategoryChange}
+						checked={category === true}
 						name='category'
 						value={category}
 						id={category}
@@ -23,7 +21,7 @@ const Categories = ({ onCategoriesChange, selectedCategories }) => {
 					<span>{category}</span>
 				</label>
 			))}
-		</form>
+		</section>
 	);
 };
 

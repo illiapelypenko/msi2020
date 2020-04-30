@@ -2,11 +2,11 @@ import React from 'react';
 import './Header.scss';
 
 function Header() {
-	return [
+	return (
 		<header className='header'>
 			<h2>MSI 2020</h2>
-		</header>,
-	];
+		</header>
+	);
 }
 
 export default Header;
