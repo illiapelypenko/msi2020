@@ -1,0 +1,61 @@
+.favourite-btn {
+	display: flex;
+	justify-content: space-between;
+	width: 122px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 10;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	.favourite-btn__icon-group {
+		width: 28px;
+		height: 28px;
+		background: #333;
+		border-radius: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: transform 0.5s;
+
+		&--transformed {
+			transform: rotate(180deg);
+			.favourite-btn__icon-stick--1 {
+				transform: translateY(3px) rotate(45deg);
+			}
+
+			.favourite-btn__icon-stick--2 {
+				transform: translateY(-3px) rotate(-45deg);
+			}
+		}
+
+		.favourite-btn__icon-stick {
+			width: 14px;
+			height: 2px;
+			border-radius: 2px;
+			background: #fff;
+			transition: transform 0.5s;
+			transform-origin: center;
+
+			&--1 {
+				margin-bottom: 2px;
+			}
+
+			&--2 {
+				margin-top: 2px;
+			}
+		}
+	}
+
+	.favourite-btn__text {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 28px;
+		color: #ababab;
+	}
+}

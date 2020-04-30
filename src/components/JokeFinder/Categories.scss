@@ -1,0 +1,41 @@
+.jokeFinder__categories {
+	display: flex;
+
+	.jokeFinder__category {
+		height: 28px;
+		border: 2px solid #f8f8f8;
+		border-radius: 6px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&--checked {
+			background: #f8f8f8;
+
+			span {
+				font-weight: 500;
+				font-size: 12px;
+				line-height: 16px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				color: #333333;
+			}
+		}
+	}
+
+	input {
+		position: absolute;
+		opacity: 0;
+		height: 0;
+		width: 0;
+	}
+
+	span {
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: #ababab;
+	}
+}
