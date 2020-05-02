@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HeartBlank({ onClick }) {
+function HeartBlank({ onClick, isActive }) {
 	return (
 		<svg
 			width='20'
@@ -8,7 +8,7 @@ function HeartBlank({ onClick }) {
 			viewBox='0 0 20 17'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
-			className='heart heart--blank'
+			className={`heart heart--blank ${isActive ? 'heart--active' : ''}`}
 			onClick={onClick}>
 			>
 			<path

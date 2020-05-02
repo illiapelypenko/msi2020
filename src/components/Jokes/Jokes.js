@@ -10,11 +10,18 @@ const Jokes = ({ jokes, onLikeJoke, favoriteJokes }) => {
 		<div className='jokes'>
 			{jokes.map((joke) => (
 				<article className='joke'>
-					{favoriteJokes.find((favoriteJoke) => joke.id === favoriteJoke.id) ? (
-						<HeartFilled onClick={(e) => onLikeJoke(e, joke)} />
-					) : (
-						<HeartBlank onClick={(e) => onLikeJoke(e, joke)} />
-					)}
+					<HeartFilled
+						onClick={(e) => onLikeJoke(e, joke)}
+						isActive={favoriteJokes.find(
+							(favoriteJoke) => joke.id === favoriteJoke.id
+						)}
+					/>
+					<HeartBlank
+						onClick={(e) => onLikeJoke(e, joke)}
+						isActive={favoriteJokes.find(
+							(favoriteJoke) => joke.id !== favoriteJoke.id
+						)}
+					/>
 					<Message />
 					<span className='joke__id'>
 						<span>ID: </span>
@@ -33,7 +40,9 @@ const Jokes = ({ jokes, onLikeJoke, favoriteJokes }) => {
 							&nbsp;hours ago
 						</span>
 					</span>
-					<div className='joke__category'>{joke.categories[0]}</div>
+					{joke.categories.length > 0 ? (
+						<div className='joke__category'>{joke.categories[0]}</div>
+					) : null}
 				</article>
 			))}
 		</div>

@@ -12,6 +12,10 @@ const App = () => {
 	const [jokes, setJokes] = useState([]);
 	const [favoriteJokes, setFavoriteJokes] = useState([]);
 
+	useEffect(() => {
+		setFavoriteJokes(JSON.parse(localStorage.getItem('favoriteJokes')));
+	}, []);
+
 	const handleLikeJoke = (e, joke) => {
 		if (favoriteJokes.find((favoriteJoke) => joke.id === favoriteJoke.id)) {
 			const newFavoriteJokes = [...favoriteJokes];

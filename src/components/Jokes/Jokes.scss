@@ -16,29 +16,25 @@
 			top: 20px;
 			right: 20px;
 			cursor: pointer;
+			transition: transform 0.3s;
 
 			&--blank {
-				z-index: 5;
-
-				&:hover {
-					opacity: 0;
-				}
-
-				&:hover + .heart--filled {
-					transition: transform 0.3s;
-					transform: scale(1);
-				}
-
-				&:active + .heart--filled {
-					transition: transform 0.3s;
-					transform: scale(1.5);
-				}
+				z-index: 3;
+				opacity: 0;
 			}
 
 			&--filled {
 				z-index: 4;
 				transform: scale(0);
 			}
+		}
+
+		.heart--blank.heart--active {
+			opacity: 1;
+		}
+
+		.heart--filled.heart--active {
+			transform: scale(1);
 		}
 
 		.message {
