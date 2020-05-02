@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import FavouriteBtn from './components/FavouriteBtn/FavouriteBtn';
 import JokeFinder from './components/JokeFinder/JokeFinder';
 import Jokes from './components/Jokes/Jokes';
+import FavoriteSection from './components/FavoriteSection/FavoriteSection';
 
 const categories = ['animal', 'career', 'celebrity', 'dev'];
 
@@ -43,6 +44,12 @@ const App = () => {
 			<FavouriteBtn
 				onFavoriteBtnClick={handleFavoriteBtnClick}
 				favouriteSectionVisible={favouriteSectionVisible}
+			/>
+			<FavoriteSection
+				isVisible={favouriteSectionVisible}
+				jokes={favoriteJokes}
+				favoriteJokes={favoriteJokes}
+				onLikeJoke={handleLikeJoke}
 			/>
 			<Header />
 			<JokeFinder categories={categories} setJokes={setJokes} />
