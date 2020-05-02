@@ -5,13 +5,16 @@ import HeartFilled from './heart-filled-icon';
 import Message from './message-icon';
 import Link from './link-icon';
 
-const Jokes = ({ jokes }) => {
+const Jokes = ({ jokes, onLikeJoke, favoriteJokes }) => {
 	return (
 		<div className='jokes'>
 			{jokes.map((joke) => (
 				<article className='joke'>
-					<HeartBlank />
-					<HeartFilled />
+					{favoriteJokes.find((favoriteJoke) => joke.id === favoriteJoke.id) ? (
+						<HeartFilled onClick={(e) => onLikeJoke(e, joke)} />
+					) : (
+						<HeartBlank onClick={(e) => onLikeJoke(e, joke)} />
+					)}
 					<Message />
 					<span className='joke__id'>
 						<span>ID: </span>
@@ -30,6 +33,7 @@ const Jokes = ({ jokes }) => {
 							&nbsp;hours ago
 						</span>
 					</span>
+					<div className='joke__category'>{joke.categories[0]}</div>
 				</article>
 			))}
 		</div>

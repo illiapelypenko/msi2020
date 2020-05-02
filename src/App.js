@@ -10,6 +10,25 @@ const categories = ['animal', 'career', 'celebrity', 'dev'];
 const App = () => {
 	const [favouriteSectionVisible, setFavouriteSectionVisible] = useState(false);
 	const [jokes, setJokes] = useState([]);
+	const [favoriteJokes, setFavoriteJokes] = useState([]);
+
+	const handleLikeJoke = (e, joke) => {
+		if (favoriteJokes.find((favoriteJoke) => joke.id === favoriteJoke.id)) {
+			const newFavoriteJokes = [...favoriteJokes];
+			newFavoriteJokes.splice(
+				favoriteJokes.findIndex((favoriteJoke) => joke.id === favoriteJoke.id),
+				1
+			);
+			setFavoriteJokes(newFavoriteJokes);
+			localStorage.setItem('favoriteJokes', JSON.stringify(newFavoriteJokes));
+		} else {
+			setFavoriteJokes([...favoriteJokes, joke]);
+			localStorage.setItem(
+				'favoriteJokes',
+				JSON.stringify([...favoriteJokes, joke])
+			);
+		}
+	};
 
 	const handleFavoriteBtnClick = () => {
 		setFavouriteSectionVisible(!favouriteSectionVisible);
@@ -23,7 +42,11 @@ const App = () => {
 			/>
 			<Header />
 			<JokeFinder categories={categories} setJokes={setJokes} />
-			<Jokes jokes={jokes} />
+			<Jokes
+				jokes={jokes}
+				onLikeJoke={handleLikeJoke}
+				favoriteJokes={favoriteJokes}
+			/>
 		</div>
 	);
 };
