@@ -43,17 +43,26 @@ const App = () => {
 
 	return (
 		<div className='app'>
-			<Header
-				onFavoriteBtnClick={handleFavoriteBtnClick}
-				favouriteSectionVisible={favouriteSectionVisible}
-			/>
+			<Header>
+				<FavouriteBtn
+					onFavoriteBtnClick={handleFavoriteBtnClick}
+					favouriteSectionVisible={favouriteSectionVisible}
+				/>
+			</Header>
 			<FavoriteSection
 				isVisible={favouriteSectionVisible}
 				jokes={favoriteJokes}
 				favoriteJokes={favoriteJokes}
 				onLikeJoke={handleLikeJoke}
+				onFavoriteBtnClick={handleFavoriteBtnClick}
+				favouriteSectionVisible={favouriteSectionVisible}
 			/>
-			<main className='main-section'>
+			<main
+				className={
+					favouriteSectionVisible
+						? 'main-section'
+						: 'main-section main-section--visible'
+				}>
 				<JokeFinder categories={categories} setJokes={setJokes} />
 				<Jokes
 					jokes={jokes}

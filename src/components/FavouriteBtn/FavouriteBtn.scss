@@ -1,16 +1,37 @@
+.header {
+	.favourite-btn {
+	}
+
+	.favourite-btn--favorite-section-visible {
+		opacity: 0;
+	}
+}
+
+.favorite-section {
+	.favourite-btn {
+		align-self: flex-end;
+		opacity: 0;
+		transition-delay: 0.35s;
+	}
+
+	.favourite-btn--favorite-section-visible {
+		opacity: 1;
+	}
+}
+
 .favourite-btn {
-	display: flex;
+	transition: opacity 0.5s;
+
 	justify-content: space-between;
 	width: 122px;
-	// position: fixed;
-	// top: 20px;
-	// right: 20px;
 	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	font-weight: 500;
+	display: none;
+	z-index: 10;
 
 	.favourite-btn__icon-group {
 		width: 28px;
@@ -58,5 +79,11 @@
 		line-height: 28px;
 		color: #ababab;
 		z-index: 10;
+	}
+}
+
+@media (min-width: 0px) and (max-width: 1440px) {
+	.favourite-btn {
+		display: flex;
 	}
 }

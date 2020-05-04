@@ -7,7 +7,7 @@ import Link from './link-icon';
 
 const Jokes = ({ jokes, onLikeJoke, favoriteJokes }) => {
 	return (
-		<div className='jokes'>
+		<div className='jokes' onScroll={(e) => e.stopPropagation()}>
 			{jokes.map((joke) => (
 				<article className='joke'>
 					<HeartFilled
