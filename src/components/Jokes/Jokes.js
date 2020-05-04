@@ -18,9 +18,11 @@ const Jokes = ({ jokes, onLikeJoke, favoriteJokes }) => {
 					/>
 					<HeartBlank
 						onClick={(e) => onLikeJoke(e, joke)}
-						isActive={favoriteJokes.find(
-							(favoriteJoke) => joke.id !== favoriteJoke.id
-						)}
+						isActive={
+							favoriteJokes.find(
+								(favoriteJoke) => joke.id !== favoriteJoke.id
+							) || favoriteJokes.length === 0
+						}
 					/>
 					<Message />
 					<span className='joke__id'>

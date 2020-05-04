@@ -40,6 +40,7 @@ const JokeFinder = ({ categories, setJokes }) => {
 				api += `search?query=${searchedText}`;
 				res = await axios.get(api);
 				setJokes(res.data.result);
+				setSearchedText('');
 				break;
 		}
 	};

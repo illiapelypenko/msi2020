@@ -1,5 +1,5 @@
 .favorite-section {
-	z-index: 7;
+	z-index: 9;
 	position: fixed;
 	background: #f8f8f8;
 	min-height: 100vh;
@@ -19,6 +19,34 @@
 	.jokes {
 		.joke {
 			background: #fff;
+		}
+	}
+}
+
+@media (min-width: 900px) {
+	.favorite-section {
+		z-index: 9;
+		position: fixed;
+		background: #f8f8f8;
+		min-height: 100vh;
+		width: 480px;
+		transition: 0.5s;
+		padding: 78px 20px 20px 20px;
+		transform: translateX(0px);
+		top: 0;
+		bottom: 0;
+		overflow-y: scroll;
+		right: 0;
+		left: unset;
+
+		&--visible {
+			transform: translateX(0px);
+		}
+
+		.jokes {
+			.joke {
+				background: #fff;
+			}
 		}
 	}
 }

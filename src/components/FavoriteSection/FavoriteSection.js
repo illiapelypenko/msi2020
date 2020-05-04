@@ -8,7 +8,6 @@ function FavoriteSection({ isVisible, favoriteJokes, onLikeJoke }) {
 			className={`favorite-section ${
 				isVisible ? 'favorite-section--visible' : ''
 			}`}>
-			<div className='blah'></div>
 			<Jokes
 				jokes={favoriteJokes}
 				favoriteJokes={favoriteJokes}

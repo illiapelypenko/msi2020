@@ -14,7 +14,9 @@ const App = () => {
 	const [favoriteJokes, setFavoriteJokes] = useState([]);
 
 	useEffect(() => {
-		setFavoriteJokes(JSON.parse(localStorage.getItem('favoriteJokes')));
+		if (localStorage.getItem('favoriteJokes')) {
+			setFavoriteJokes(JSON.parse(localStorage.getItem('favoriteJokes')));
+		}
 	}, []);
 
 	const handleLikeJoke = (e, joke) => {
@@ -41,7 +43,7 @@ const App = () => {
 
 	return (
 		<div className='app'>
-			<FavouriteBtn
+			<Header
 				onFavoriteBtnClick={handleFavoriteBtnClick}
 				favouriteSectionVisible={favouriteSectionVisible}
 			/>
@@ -51,11 +53,7 @@ const App = () => {
 				favoriteJokes={favoriteJokes}
 				onLikeJoke={handleLikeJoke}
 			/>
-			<main
-				className={`main-section ${
-					favouriteSectionVisible ? 'main-section--hidden' : ''
-				}`}>
-				<Header />
+			<main className='main-section'>
 				<JokeFinder categories={categories} setJokes={setJokes} />
 				<Jokes
 					jokes={jokes}
