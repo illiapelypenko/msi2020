@@ -3,7 +3,11 @@ import './FavouriteBtn.scss';
 
 const FavouriteBtn = ({ onFavoriteBtnClick, favouriteSectionVisible }) => {
 	return (
-		<div className='favourite-btn' onClick={onFavoriteBtnClick}>
+		<div
+			className={`favourite-btn ${
+				favouriteSectionVisible ? 'favourite-btn--favorite-section-visible' : ''
+			}`}
+			onClick={onFavoriteBtnClick}>
 			<div
 				className={`favourite-btn__icon-group ${
 					favouriteSectionVisible

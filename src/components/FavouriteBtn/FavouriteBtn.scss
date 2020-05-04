@@ -23,6 +23,7 @@
 		justify-content: center;
 		align-items: center;
 		transition: transform 0.5s;
+		z-index: 10;
 
 		&--transformed {
 			transform: rotate(180deg);
@@ -57,5 +58,6 @@
 		font-size: 20px;
 		line-height: 28px;
 		color: #ababab;
+		z-index: 10;
 	}
 }

@@ -51,13 +51,18 @@ const App = () => {
 				favoriteJokes={favoriteJokes}
 				onLikeJoke={handleLikeJoke}
 			/>
-			<Header />
-			<JokeFinder categories={categories} setJokes={setJokes} />
-			<Jokes
-				jokes={jokes}
-				onLikeJoke={handleLikeJoke}
-				favoriteJokes={favoriteJokes}
-			/>
+			<main
+				className={`main-section ${
+					favouriteSectionVisible ? 'main-section--hidden' : ''
+				}`}>
+				<Header />
+				<JokeFinder categories={categories} setJokes={setJokes} />
+				<Jokes
+					jokes={jokes}
+					onLikeJoke={handleLikeJoke}
+					favoriteJokes={favoriteJokes}
+				/>
+			</main>
 		</div>
 	);
 };
