@@ -17,7 +17,7 @@
 
 	.main-section {
 		max-width: 680px;
-		height: 0px;
+		height: 100vh;
 		overflow: hidden;
 
 		&--visible {
@@ -30,7 +30,7 @@
 @media (min-width: 551px) and (max-width: 1439px) {
 	.app {
 		position: relative;
-		padding: 20px;
+		padding: 40px;
 		min-height: 100vh;
 		z-index: 1;
 
@@ -75,5 +75,11 @@
 				}
 			}
 		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.app {
+		padding: 40px 140px;
 	}
 }

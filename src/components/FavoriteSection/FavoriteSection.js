@@ -15,6 +15,7 @@ function FavoriteSection({
 			className={`favorite-section ${
 				isVisible ? 'favorite-section--visible' : ''
 			}`}>
+			<span>Favourite</span>
 			<FavouriteBtn
 				onFavoriteBtnClick={onFavoriteBtnClick}
 				favouriteSectionVisible={favouriteSectionVisible}
