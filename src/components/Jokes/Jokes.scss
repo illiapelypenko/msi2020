@@ -117,3 +117,74 @@
 		}
 	}
 }
+
+@media (min-width: 551px) and (max-width: 1439px) {
+	.jokes {
+		.joke {
+			padding: 67px 40px 45px 100px;
+			max-width: 754px;
+
+			.heart {
+				top: 40px;
+				right: 40px;
+			}
+
+			.message {
+				top: 67px;
+				left: 40px;
+			}
+
+			&__category {
+				height: 24px;
+				background: #ffffff;
+				color: #333333;
+				border-radius: 6px;
+				font-weight: 500;
+				font-size: 10px;
+				line-height: 14px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				width: max-content;
+				padding: 6px 20px;
+				position: absolute;
+				bottom: 40px;
+				right: 40px;
+			}
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	.jokes {
+		.joke {
+			padding: 67px 40px 45px 100px;
+
+			.heart {
+				top: 40px;
+				right: 40px;
+			}
+
+			.message {
+				top: 67px;
+				left: 40px;
+			}
+
+			&__category {
+				height: 24px;
+				background: #ffffff;
+				color: #333333;
+				border-radius: 6px;
+				font-weight: 500;
+				font-size: 10px;
+				line-height: 14px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				width: max-content;
+				padding: 6px 20px;
+				position: absolute;
+				bottom: 40px;
+				right: 40px;
+			}
+		}
+	}
+}
