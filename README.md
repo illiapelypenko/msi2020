@@ -1,6 +1,6 @@
 ## About project
 
-The Chuck Norris jokes generator
+The Chuck Norris jokes generator (link to the working application [https://master.d60lpnqf5tytl.amplifyapp.com/](https://master.d60lpnqf5tytl.amplifyapp.com/))
 
 ### `npm start`
 
